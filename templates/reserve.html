@@ -2,13 +2,14 @@
 <html>
     <head>
         <title>Reserve a Seat</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='mizstyle.css') }}">
     </head>
 
     <body>
         <h1>Reserve a Seat</h1>
 
         {% if error %}
-            <p style="color:red">{{ error }}</p>
+            <p class="error-message">{{ error }}</p>
         {% endif %}
 
         {% if reservation %}
@@ -46,6 +47,6 @@
             </p>
             <p>{{ form.submit() }}</p>
         </form>
-        <p><a href="{{ url_for('index') }}">Back to Main Menu</a></p>
+        <a href="{{ url_for('index') }}" class="main-menu-link">Back to Main Menu</a>
     </body>
 </html>

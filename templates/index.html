@@ -2,13 +2,14 @@
 <html>
     <head>
         <title>Main Menu</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='mizstyle.css') }}">
     </head>
 
     <body>
         <h1>Welcome to the Trip Reservation System</h1>
         <ul>
-            <li><a href="{{ url_for('reserve') }}">Reserve a Seat</a></li>
-            <li><a href="{{ url_for('admin_login') }}">Admin Login</a></li>
+            <a href="{{ url_for('reserve') }}" class="main-menu-button">Reserve a Seat</a>
+            <a href="{{ url_for('admin_login') }}" class="main-menu-button">Admin Login</a>
         </ul>
     </body>
 </html>
