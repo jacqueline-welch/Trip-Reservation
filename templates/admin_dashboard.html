@@ -3,19 +3,20 @@
 
 <head>
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mizstyle.css') }}">
 </head>
 
 <body>
     <h1>Admin Dashboard</h1>
 
     <h2>Seating Chart</h2>
-    <pre>
+    <div class="seating-chart">
+        <pre>
             {% for row in seating_chart_data %}
                 [{{ row|join(' ') }}]<br>
-            {% endfor %}
+                {% endfor %}
         </pre>
-
-    <p>Total Sales: ${{ total_sales }}</p>
+    </div>
 
     <h2>Reservation List</h2>
     {% if reservations %}
@@ -27,7 +28,8 @@
             <a href="{{ url_for('edit_reservation', reservation_id=res.id) }}" class="edit-button">Edit</a>
             <form method="POST" action="{{ url_for('admin_dashboard') }}" style="display: inline-block;">
                 <input type="hidden" name="eTicketNumber" value="{{ res.eTicketNumber }}">
-                <button type="submit" class="delete-button">Delete</button>
+                <button type="submit" class="edit-button">Delete</button>
+
             </form>
         </li>
         {% endfor %}
@@ -36,7 +38,7 @@
     <p>No reservations yet.</p>
     {% endif %}
 
-    <p><a href="{{ url_for('index') }}">Back to Main Menu</a></p>
+    <a href="{{ url_for('index') }}" class="main-menu-link">Back to Main Menu</a>
 </body>
 
 </html>

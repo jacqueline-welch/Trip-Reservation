@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Edit Reservation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='mizstyle.css') }}">
 </head>
 
 <body>
@@ -29,7 +30,7 @@
 
         <p>
             <button type="submit">{{ form.submit.label.text or "Update" }}</button>
-            <a href="{{ url_for('admin_dashboard') }}">Cancel</a>
+            <a href="{{ url_for('admin_dashboard') }}" class="cancel-button">Cancel</a>
         </p>
     </form>
 
